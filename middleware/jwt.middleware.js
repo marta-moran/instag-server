@@ -4,11 +4,10 @@ const validateToken = (req, res, next) => {
 
   const { authorization } = req.headers
 
-  console.log("QUÉ LLEGA AQUÍ???", req.headers)
-
   if (authorization) {
     const token = authorization.substring(7)
     const { sub: id, email } = verifyToken(token)
+    console.log("INFO TOKEN", id, email)
     req.user = { id, email }
   }
 
