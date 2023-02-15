@@ -7,12 +7,13 @@ const {
   editUser,
   deleteUser
 } = require('../controller/user.controller');
+const { validateToken } = require("../middleware/jwt.middleware");
 
 // router.get("/", (req, res, next) => {
 //   res.json("All good in here");
 // });
 
-router.get("/getAll", getUsers)
+router.get("/getAll", validateToken, getUsers)
 
 router.get("/getUser/:id", getOneUser)
 

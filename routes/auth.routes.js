@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {validateToken } = require("../middleware/jwt.middleware.js");
+const { validateToken } = require("../middleware/jwt.middleware.js");
 
 const {
   signUp,
