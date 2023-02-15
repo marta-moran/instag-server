@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { isAuthenticated } = require("../middleware/jwt.middleware.js");
+const {validateToken } = require("../middleware/jwt.middleware.js");
 
 const {
   signUp,
@@ -11,7 +11,7 @@ router.post('/login', login)
 
 router.post('/signup', signUp)
 
-router.get('/verify', isAuthenticated, verify)
+router.get('/verify', validateToken, verify)
 
 module.exports = router;
 

@@ -60,6 +60,8 @@ const signUp = (req, res, next) => {
 const login = (req, res, next) => {
     const { email, password } = req.body;
 
+    console.log(email, password)
+
     if (email === "" || password === "") {
         res.status(400).json({ message: "Provide email and password." });
         return;
@@ -71,7 +73,6 @@ const login = (req, res, next) => {
                 res.status(401).json({ message: "User not found." });
                 return;
             }
-
 
             const passwordCorrect = bcrypt.compareSync(password, foundUser.password);
 
@@ -95,7 +96,6 @@ const login = (req, res, next) => {
 
 const verify = (req, res, next) => {
     console.log(`req.payload`, req.payload);
-
     res.status(200).json(req.payload);
 }
 
