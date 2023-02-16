@@ -3,7 +3,12 @@ const router = express.Router();
 
 const {
     publishPost,
-} = require('../controller/auth.controller');
+    editPost,
+    deletePost,
+    getAllPosts,
+    getOnePost
+
+} = require('../controller/post.controller');
 
 
 router.put('/editPost/:id', editPost)
