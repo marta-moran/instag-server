@@ -6,7 +6,8 @@ const validateToken = (req, res, next) => {
 
   if (authorization) {
     const token = authorization.substring(7)
-    const { sub: id, email } = verifyToken(token)
+    console.log("QUE ME LLEGA ===>", verifyToken(token))
+    const { _id: id, email } = verifyToken(token)
     console.log("INFO TOKEN", id, email)
     req.user = { id, email }
   }

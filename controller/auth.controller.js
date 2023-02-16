@@ -99,7 +99,6 @@ const verify = (req, res, next) => {
 
     User
         .findById(id)
-        .select("-createdAt -updatedAt -__v")
         .then(user => {
             res.status(200).json(user)
         })

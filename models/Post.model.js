@@ -8,10 +8,10 @@ const postSchema = new Schema(
         image: {
             type: String,
         },
-        author: {
+        description: {
             type: String,
-            required: [true, "Name is required."],
         },
+        author: { type: Schema.Types.ObjectId, ref: 'User' }
     },
     {
         // this second object adds extra properties: `createdAt` and `updatedAt`
