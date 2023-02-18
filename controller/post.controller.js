@@ -5,6 +5,7 @@ const User = require("../models/User.model")
 const publishPost = (req, res, next) => {
     const { title, image, author, description } = req.body
 
+
     Post.create({ title, image, author, description })
         .then(post => {
             return User.findByIdAndUpdate(author, { $push: { posts: post.id } }, { new: true })
@@ -15,10 +16,25 @@ const publishPost = (req, res, next) => {
 }
 
 const editPost = (req, res, next) => {
-    res.status(200).json('funciona')
+    const { name, title } = req.body
+    console.log(req.body)
+    console.log("HOLAAAAAA")
+    Post.findByIdAndUpdate(req.params.id.toString(), { name, title }, { new: true })
+        .then(postUpdated => res.status(200).json({ message: postUpdated }))
+        .catch(error => next(error))
 }
+
+
 const deletePost = (req, res, next) => {
-    res.status(200).json('funciona')
+
+    Post.findByIdAndDelete(req.params.id)
+        .then(deletedPost => {
+            return User.findByIdAndUpdate(deletedPost.author.toString(), { $pull: { posts: req.params.id } }, { new: true })
+        })
+        .then(user => {
+            res.status(200).json({ message: "Se ha borrado el post" })
+        })
+        .catch(error => next(error))
 
 }
 const getAllPosts = (req, res, next) => {
@@ -59,6 +75,8 @@ const fileUpload = (req, res, next) => {
 
 
 }
+
+
 
 
 module.exports = {

@@ -15,7 +15,7 @@ const {
 
 
 router.put('/editPost/:id', editPost)
-router.delete('/deletePost', deletePost)
+router.delete('/deletePost/:id', deletePost)
 router.get('/getAllPosts', validateToken, getAllPosts)
 router.get('/getOnePost/:id', getOnePost)
 
