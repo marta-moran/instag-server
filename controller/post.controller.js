@@ -40,14 +40,32 @@ const getAllPosts = (req, res, next) => {
 }
 
 const getOnePost = (req, res, next) => {
-    res.status(200).json('funciona')
+
+    Post.findById(req.params.id)
+        .populate("author")
+        .then(post => res.status(200).json(post))
+        .catch(error => next(error))
 
 }
+
+const fileUpload = (req, res, next) => {
+
+    if (!req.file) {
+        res.status(500).json({ errorMessage: 'Error cargando el archivo' })
+        return
+    }
+
+    res.status(200).json(req.file.path)
+
+
+}
+
 
 module.exports = {
     publishPost,
     editPost,
     deletePost,
     getAllPosts,
-    getOnePost
+    getOnePost,
+    fileUpload
 }
