@@ -9,7 +9,7 @@ const saltRounds = 10;
 
 const signUp = (req, res, next) => {
     console.log(req.body)
-    const { email, password, name } = req.body;
+    const { email, password, name, avatar } = req.body;
 
     if (email === "" || password === "" || name === "") {
         res.status(400).json({ message: "Provide email, password and name" });
@@ -42,14 +42,14 @@ const signUp = (req, res, next) => {
             const hashedPassword = bcrypt.hashSync(password, salt);
 
 
-            return User.create({ email, password: hashedPassword, name });
+            return User.create({ email, password: hashedPassword, name, avatar });
         })
         .then((createdUser) => {
 
-            const { email, name, _id } = createdUser;
+            const { email, name, _id, avatar } = createdUser;
 
 
-            const user = { email, name, _id };
+            const user = { email, name, _id, avatar };
 
             res.status(201).json({ user: user });
         })

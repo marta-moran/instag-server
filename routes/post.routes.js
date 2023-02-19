@@ -9,7 +9,8 @@ const {
     deletePost,
     getAllPosts,
     getOnePost,
-    fileUpload
+    fileUpload,
+    explorerPosts
 
 } = require('../controller/post.controller');
 
@@ -18,9 +19,9 @@ router.put('/editPost/:id', editPost)
 router.delete('/deletePost/:id', deletePost)
 router.get('/getAllPosts', validateToken, getAllPosts)
 router.get('/getOnePost/:id', getOnePost)
+router.get('/explorerPost', explorerPosts)
 
 router.post('/fileUpload', fileUploader.single('imageUrl'), fileUpload)
-
 router.post('/publishPost', publishPost)
 
 

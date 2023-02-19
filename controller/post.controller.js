@@ -16,10 +16,10 @@ const publishPost = (req, res, next) => {
 }
 
 const editPost = (req, res, next) => {
-    const { name, title } = req.body
+    const { title, description } = req.body
     console.log(req.body)
     console.log("HOLAAAAAA")
-    Post.findByIdAndUpdate(req.params.id.toString(), { name, title }, { new: true })
+    Post.findByIdAndUpdate(req.params.id, { title, description }, { new: true })
         .then(postUpdated => res.status(200).json({ message: postUpdated }))
         .catch(error => next(error))
 }
@@ -76,6 +76,14 @@ const fileUpload = (req, res, next) => {
 
 }
 
+const explorerPosts = (req, res, next) => {
+
+    Post.find()
+        .then(posts => res.status(200).json({ posts }))
+        .catch(error => next(error))
+
+}
+
 
 
 
@@ -85,5 +93,6 @@ module.exports = {
     deletePost,
     getAllPosts,
     getOnePost,
-    fileUpload
+    fileUpload,
+    explorerPosts
 }
