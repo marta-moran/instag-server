@@ -14,11 +14,6 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.json({ limit: '2mb' }));
-app.use(bodyParser.urlencoded({ limit: '2mb', extended: true }));
-
-
 // 👇 Start handling routes here
 const userRoutes = require("./routes/user.routes");
 app.use("/user", userRoutes);
