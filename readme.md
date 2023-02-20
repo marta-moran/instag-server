@@ -13,7 +13,7 @@ Instag es una aplicación para subida de fotos y ver fotos de otros usuarios. Se
 | /post/explorerPost      | GET           | Muestra todos los posts de la BD |
 
 
-## **User routes**:
+## **User routes**
 
 | URL path                    | HTTP Method       | Action                        |
 | :--------------------------:|:-----------------:|  :----------------------------:|
@@ -21,7 +21,7 @@ Instag es una aplicación para subida de fotos y ver fotos de otros usuarios. Se
 | /users/getUser/:id            | GET               | Trae al usuario logeado de la BD |
 
 
-## **Auth routes**:
+## **Auth routes**
 
 | URL path                    | HTTP Method       | Action                        |
 | :--------------------------:|:-----------------:| :--------------------------------:| 
