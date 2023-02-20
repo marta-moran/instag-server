@@ -1,7 +1,7 @@
-# INSTAG
+# Instag
 Instag es una aplicación para subida de fotos y ver fotos de otros usuarios. Se ha desarrollado bajo el stack MERN. La aplicación es mobile first y se puede encontrar desplegada en el siguiente enlace: https://instag-client.vercel.app/
 
-## ENDPOINTS
+## Endpoints
 ## **Post routes**
 
 | URL path                    | HTTP Method        | Action                        |
