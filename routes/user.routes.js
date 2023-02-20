@@ -5,8 +5,8 @@ const { validateToken } = require("../middleware/jwt.middleware");
 const {
   getUsers,
   getOneUser,
-  editUser,
-  deleteUser
+  // editUser,
+  // deleteUser
 } = require('../controller/user.controller');
 
 
@@ -18,8 +18,8 @@ router.get("/getAll", validateToken, getUsers)
 
 router.get("/getUser/:id", getOneUser)
 
-router.put("/editUser/:id", editUser)
+// router.put("/editUser/:id", editUser)
 
-router.delete('/deleteUser/:id', deleteUser)
+// router.delete('/deleteUser/:id', deleteUser)
 
 module.exports = router;
